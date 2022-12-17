@@ -1,0 +1,1 @@
+pip install albumentations timm wandb transformers
