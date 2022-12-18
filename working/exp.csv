@@ -1,0 +1,3 @@
+实验折数,变量,pf1,f1,auc,thresh(pf1),lb
+baseline-fold0,3e-4lr+adamw+sigmoid+BCE+efficientnet-b1-512size,0.1317,0.1288,0.7147,0.1766(0.08),单元格 
+ 

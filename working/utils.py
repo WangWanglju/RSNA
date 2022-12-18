@@ -173,7 +173,7 @@ def pfbeta(labels, predictions, beta=1):
         return result
 
 def optimal_f1(labels, predictions):
-    thres = np.linspace(0, 1, 101)
+    thres = np.linspace(0, 1, 51)
     f1s = [pfbeta_np(labels, predictions > thr) for thr in thres]
     idx = np.argmax(f1s)
     return f1s[idx], thres[idx]

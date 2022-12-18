@@ -29,9 +29,7 @@ from torch.utils.data import DataLoader
 
 from transformers import get_linear_schedule_with_warmup, get_cosine_schedule_with_warmup
 
-
-
-from dataset import TrainDataset, get_transfos
+from dataset import TrainDataset, get_train_transfos, get_valid_transfos
 from config import CFG
 from model import define_model
 from utils import *
@@ -162,11 +160,11 @@ def valid_fn(valid_loader, model, criterion, device):
 def get_scheduler(cfg, optimizer, num_train_steps):
     if cfg.scheduler == 'linear':
         scheduler = get_linear_schedule_with_warmup(
-            optimizer, num_warmup_steps=cfg.num_warmup_steps, num_training_steps=num_train_steps
+            optimizer, num_warmup_steps=cfg.warmup_ratio*num_train_steps, num_training_steps=num_train_steps
         )
     elif cfg.scheduler == 'cosine':
         scheduler = get_cosine_schedule_with_warmup(
-            optimizer, num_warmup_steps=cfg.num_warmup_steps, num_training_steps=num_train_steps, num_cycles=cfg.num_cycles
+            optimizer, num_warmup_steps=cfg.warmup_ratio*num_train_steps, num_training_steps=num_train_steps, num_cycles=cfg.num_cycles
         )
     return scheduler
 
@@ -184,8 +182,8 @@ def train_loop(folds, fold):
     valid_folds = folds[folds['fold'] == fold].reset_index(drop=True)
     valid_labels = valid_folds['cancer'].values
     
-    train_dataset = TrainDataset(CFG, train_folds, get_transfos())
-    valid_dataset = TrainDataset(CFG, valid_folds, get_transfos())
+    train_dataset = TrainDataset(CFG, train_folds, get_train_transfos())
+    valid_dataset = TrainDataset(CFG, valid_folds, get_valid_transfos())
 
     train_loader = DataLoader(train_dataset,
                               batch_size=CFG.data_config['batch_size'],
@@ -226,8 +224,9 @@ def train_loop(folds, fold):
     # ====================================================
     # criterion = nn.CrossEntropyLoss(weight=torch.tensor([20.]).to(device)) # RMSELoss(reduction="mean")
     criterion = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([20.]).to(device))
+    # criterion = nn.BCEWithLogitsLoss()
     
-    best_score = np.inf
+    best_score = -np.inf
 
     for epoch in range(CFG.epochs):
 
@@ -240,8 +239,17 @@ def train_loop(folds, fold):
         avg_val_loss, predictions = valid_fn(valid_loader, model, criterion, device)
         
         # scoring
+        valid_folds["pred_cancer" ] = predictions
         score = pfbeta_np(valid_labels, predictions)
+        agg_valid_folds = valid_folds.groupby(["patient_id","laterality"]).agg({'pred_cancer':['mean', 'max'], 'cancer': 'unique'}).reset_index()
+        agg_valid_folds['mean_cancer'] = agg_valid_folds.iloc[:, 2]
+        agg_valid_folds['max_cancer'] = agg_valid_folds.iloc[:, 3]
+        agg_valid_folds['label'] = agg_valid_folds.iloc[:, 4].str[0].astype(np.int)
+        agg_valid_folds = agg_valid_folds[['patient_id', 'laterality', 'mean_cancer', 'max_cancer', 'label']]
+
         optimal_pf1_score, thresh = optimal_f1(valid_labels, predictions)
+        mean_score = pfbeta_np(agg_valid_folds.label.values, agg_valid_folds.mean_cancer.values)
+        max_score = pfbeta_np(agg_valid_folds.label.values, agg_valid_folds.max_cancer.values)
         pred = (predictions > 0.5).astype(np.int)
         f1_scores = f1_score(valid_labels, pred)
         fpr, tpr, thresholds = roc_curve(valid_labels, predictions)
@@ -250,8 +258,9 @@ def train_loop(folds, fold):
         elapsed = time.time() - start_time
 
         LOGGER.info(f'Epoch {epoch+1} - avg_train_loss: {avg_loss:.4f}  avg_val_loss: {avg_val_loss:.4f}  time: {elapsed:.0f}s')
-        LOGGER.info(f'Epoch {epoch+1} - the pf1: {score:.4f}   f1_score:{f1_scores:.4f}   auc: {pred_auc:.4f}')
-        LOGGER.info(f'Epoch {epoch+1} - the optimal pf1: {optimal_pf1_score:.4f}   thresh:{thresh:.4f}')
+        LOGGER.info(f'Epoch {epoch+1} - the pf1: {score:.4f}  aggregate: mean_blend:{mean_score:.4f}   max_blend: {max_score:.4f}')
+        LOGGER.info(f'Epoch {epoch+1} - f1_score:{f1_scores:.4f}   auc: {pred_auc:.4f}  \n  \
+                    the optimal pf1: {optimal_pf1_score:.4f}   thresh:{thresh:.4f}')
         if CFG.wandb:
             wandb.log({f"[fold{fold}] epoch": epoch+1, 
                        f"[fold{fold}] avg_train_loss": avg_loss, 
@@ -261,7 +270,7 @@ def train_loop(folds, fold):
                        f"[fold{fold}] auc": pred_auc
                         })
         
-        if best_score > score:
+        if best_score < score:
             best_score = score
             LOGGER.info(f'Epoch {epoch+1} - Save Best Score: {best_score:.4f} Model')
             torch.save({'model': model.state_dict(),
@@ -271,12 +280,12 @@ def train_loop(folds, fold):
 
     predictions = torch.load(exp_dir+f"/{CFG.model.replace('/', '-')}_fold{fold}_best.pth", 
                              map_location=torch.device('cpu'))['predictions']
-    valid_folds["pred_cancer" ] = predictions
+    
 
     torch.cuda.empty_cache()
     gc.collect()
     
-    return valid_folds
+    return valid_folds, agg_valid_folds
 
 #%%
 if __name__ == '__main__':
@@ -305,26 +314,34 @@ if __name__ == '__main__':
     print(train.groupby(['fold', 'cancer']).size())
     
     if CFG.debug:
-        train = train.groupby('fold').sample(200).reset_index(drop=True)
+        train = train.sort_values('patient_id')[:1000]
+        CFG.epochs = 2
 
         
     train['path'] = SAVE_FOLDER + train["patient_id"].astype(str) + "_" + train["image_id"].astype(str) + ".png"
     
-    def get_result(df):
-        pf = pfbeta_np(df.cancer, df.pred_cancer, beta=1)
+    def get_result(label, pred):
+        pf = pfbeta_np(label, pred, beta=1)
         print(pf)
     
     if CFG.train:
         oof_df = pd.DataFrame()
+        agg_df = pd.DataFrame()
         for fold in range(CFG.n_fold):
             if fold in CFG.train_fold:
-                _oof_df = train_loop(train, fold)
+                _oof_df, agg_oof_df = train_loop(train, fold)
                 oof_df = pd.concat([oof_df, _oof_df])
+                agg_df = pd.concat([agg_df, agg_oof_df])
                 LOGGER.info(f"========== fold: {fold} result ==========")
-                get_result(_oof_df)
+                get_result(_oof_df.cancer, _oof_df.pred_cancer)
         oof_df = oof_df.reset_index(drop=True)
         LOGGER.info(f"========== CV ==========")
-        get_result(oof_df)
+        print('no aggregate')
+        get_result(oof_df.cancer, oof_df.pred_cancer)
+        #aggregate
+        print('aggregate by mean max')
+        get_result(agg_df.label, agg_df.mean_cancer)
+        get_result(agg_df.label, agg_df.max_cancer)
         oof_df.to_pickle(exp_dir+'/oof_df.pkl')
         
     if CFG.wandb and not CFG.debug:

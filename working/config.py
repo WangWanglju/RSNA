@@ -1,13 +1,11 @@
 
-
 class CFG:
     """
     Parameters used for training
     """
     #debug
-    debug = False
+    debug = True
     train = True
-    train_fold = [0,1]
     num_workers = 4
 
     # General
@@ -17,11 +15,12 @@ class CFG:
     save_weights = True
 
     # Images
-    size = 256
+    # size = 256
     size = 512
 
     # k-fold
-    n_fold = 4  # Stratified GKF
+    n_fold = 3  # Stratified GKF
+    train_fold = [0,1]
 
     # Model
     model = "efficientnet_b1"
@@ -49,17 +48,16 @@ class CFG:
         "warmup_prop": 0.1,
         "betas": (0.9, 0.999),
         "eps":1e-6,
-        "max_grad_norm": 10.,
+        "max_grad_norm": 1000.,
     }
     num_cycles=0.5
-    num_warmup_steps=0
+    warmup_ratio=0.
     llrd = False
-    epochs = 4
+    epochs = 10
     apex = True
     batch_scheduler = True
     scheduler = 'cosine'
     gradient_accumulation_steps = 1
-    max_grad_norm = 1000
     print_freq = 20
     wandb = False
     

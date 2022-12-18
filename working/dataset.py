@@ -1,7 +1,58 @@
 import cv2
 import torch
+import numpy as np
 from torch.utils.data import Dataset
 from config import CFG
+
+import albumentations as albu
+from albumentations.pytorch import ToTensorV2
+
+
+def get_train_transfos(augment=True, visualize=False):
+    """
+    Returns transformations.
+
+    Args:
+        augment (bool, optional): Whether to apply augmentations. Defaults to True.
+        visualize (bool, optional): Whether to use transforms for visualization. Defaults to False.
+
+    Returns:
+        albumentation transforms: transforms.
+    """
+    return albu.Compose([
+            albu.Resize(CFG.size, CFG.size),
+            # albu.RandomBrightnessContrast(p=0.2),
+            albu.CLAHE(p=0.3),
+            albu.OneOf([
+                albu.Rotate(30, p=0.3),
+                albu.HorizontalFlip(0.3),
+                albu.VerticalFlip(0.3),],
+            p=0.5),
+            albu.Normalize(mean=0, std=1),
+            ToTensorV2(),
+        ],
+        p=1,
+    )
+
+def get_valid_transfos(augment=True, visualize=False):
+    """
+    Returns transformations.
+
+    Args:
+        augment (bool, optional): Whether to apply augmentations. Defaults to True.
+        visualize (bool, optional): Whether to use transforms for visualization. Defaults to False.
+
+    Returns:
+        albumentation transforms: transforms.
+    """
+    return albu.Compose([
+            albu.Resize(CFG.size, CFG.size),
+            albu.Normalize(mean=0, std=1),
+            ToTensorV2(),
+        ],
+        p=1,
+    )
+
 class TrainDataset(Dataset):
     """
     Image torch Dataset.
@@ -10,7 +61,7 @@ class TrainDataset(Dataset):
         self,
         cfg,
         df,
-        transforms=None,
+        transforms=get_valid_transfos(),
     ):
         """
         Constructor
@@ -39,7 +90,8 @@ class TrainDataset(Dataset):
             torch tensor [1]: Label.
             torch tensor [1]: Sample weight.
         """
-        image = cv2.imread(self.paths[idx])
+        image = cv2.imread(self.paths[idx])[..., ::-1]
+        image = np.ascontiguousarray(image)
         if self.transforms:
             image = self.transforms(image=image)["image"]
 
@@ -47,31 +99,6 @@ class TrainDataset(Dataset):
         # w = torch.tensor([1])
 
         return image, y
-
-
-import cv2
-import albumentations as albu
-from albumentations.pytorch import ToTensorV2
-
-
-def get_transfos(augment=True, visualize=False):
-    """
-    Returns transformations.
-
-    Args:
-        augment (bool, optional): Whether to apply augmentations. Defaults to True.
-        visualize (bool, optional): Whether to use transforms for visualization. Defaults to False.
-
-    Returns:
-        albumentation transforms: transforms.
-    """
-    return albu.Compose(
-        [   albu.Resize(512, 512),
-            albu.Normalize(mean=0, std=1),
-            ToTensorV2(),
-        ],
-        p=1,
-    )
 
 
 if __name__ == "__main__":
@@ -86,7 +113,7 @@ if __name__ == "__main__":
 
     train = pd.read_csv(path)
     train['path'] = SAVE_FOLDER + train["patient_id"].astype(str) + "_" + train["image_id"].astype(str) + ".png"
-    train_dataset = TrainDataset(CFG, train, get_transfos())
+    train_dataset = TrainDataset(CFG, train, get_train_transfos())
 
     train_loader = DataLoader(train_dataset,
                               batch_size=CFG.data_config['batch_size'],
