@@ -1,0 +1,162 @@
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+Epoch 1 - avg_train_loss: 0.1257  avg_val_loss: 0.1109  time: 458s
+Epoch 1 - the pf1: 0.0067  the optimal pf1: 0.0375   thresh:0.0000 
+Epoch 1 - f1_score:0.0375   auc: 0.5702
+Epoch 1 - aggregate: mean_blend:0.0066   aggregate:0.03690280065897858(0.0) 
+Epoch 1 - aggregate: max_blend: 0.0075    aggregate:0.03690280065897858(0.0) 
+Epoch 1 - Save Best Score: 0.0067 Model
+Epoch 2 - avg_train_loss: 0.1344  avg_val_loss: 0.1122  time: 459s
+Epoch 2 - the pf1: 0.0071  the optimal pf1: 0.0375   thresh:0.0000 
+Epoch 2 - f1_score:0.0375   auc: 0.6787
+Epoch 2 - aggregate: mean_blend:0.0068   aggregate:0.03690280065897858(0.0) 
+Epoch 2 - aggregate: max_blend: 0.0085    aggregate:0.03690280065897858(0.0) 
+Epoch 2 - Save Best Score: 0.0071 Model
+Epoch 3 - avg_train_loss: 0.1242  avg_val_loss: 0.1066  time: 451s
+Epoch 3 - the pf1: 0.0457  the optimal pf1: 0.1322   thresh:0.0200 
+Epoch 3 - f1_score:0.1322   auc: 0.7130
+Epoch 3 - aggregate: mean_blend:0.0399   aggregate:0.14563106796116504(0.02) 
+Epoch 3 - aggregate: max_blend: 0.0676    aggregate:0.16574585635359115(0.06) 
+Epoch 3 - Save Best Score: 0.0457 Model
+Epoch 4 - avg_train_loss: 0.1201  avg_val_loss: 0.1104  time: 459s
+Epoch 4 - the pf1: 0.0198  the optimal pf1: 0.1111   thresh:0.0200 
+Epoch 4 - f1_score:0.1111   auc: 0.7009
+Epoch 4 - aggregate: mean_blend:0.0172   aggregate:0.12598425196850394(0.02) 
+Epoch 4 - aggregate: max_blend: 0.0308    aggregate:0.16666666666666666(0.02) 
+Epoch 5 - avg_train_loss: 0.1021  avg_val_loss: 0.1186  time: 458s
+Epoch 5 - the pf1: 0.1369  the optimal pf1: 0.1708   thresh:0.1400 
+Epoch 5 - f1_score:0.1708   auc: 0.7306
+Epoch 5 - aggregate: mean_blend:0.1270   aggregate:0.1937984496124031(0.08) 
+Epoch 5 - aggregate: max_blend: 0.1540    aggregate:0.18390804597701146(0.16) 
+Epoch 5 - Save Best Score: 0.1369 Model
+Epoch 6 - avg_train_loss: 0.0998  avg_val_loss: 0.1058  time: 453s
+Epoch 6 - the pf1: 0.0843  the optimal pf1: 0.1727   thresh:0.0200 
+Epoch 6 - f1_score:0.1727   auc: 0.7682
+Epoch 6 - aggregate: mean_blend:0.0788   aggregate:0.21739130434782608(0.02) 
+Epoch 6 - aggregate: max_blend: 0.1347    aggregate:0.21590909090909094(0.04) 
+Epoch 7 - avg_train_loss: 0.0892  avg_val_loss: 0.1121  time: 441s
+Epoch 7 - the pf1: 0.1299  the optimal pf1: 0.1645   thresh:0.0200 
+Epoch 7 - f1_score:0.1645   auc: 0.7519
+Epoch 7 - aggregate: mean_blend:0.1200   aggregate:0.2131979695431472(0.1) 
+Epoch 7 - aggregate: max_blend: 0.1683    aggregate:0.20588235294117643(0.2) 
+Epoch 8 - avg_train_loss: 0.0821  avg_val_loss: 0.1097  time: 438s
+Epoch 8 - the pf1: 0.1095  the optimal pf1: 0.1626   thresh:0.0200 
+Epoch 8 - f1_score:0.1626   auc: 0.7425
+Epoch 8 - aggregate: mean_blend:0.1000   aggregate:0.2153846153846154(0.02) 
+Epoch 8 - aggregate: max_blend: 0.1488    aggregate:0.2037037037037037(0.06) 
+Epoch 9 - avg_train_loss: 0.0744  avg_val_loss: 0.1156  time: 435s
+Epoch 9 - the pf1: 0.1432  the optimal pf1: 0.1741   thresh:0.0400 
+Epoch 9 - f1_score:0.1741   auc: 0.7449
+Epoch 9 - aggregate: mean_blend:0.1351   aggregate:0.2430939226519337(0.12) 
+Epoch 9 - aggregate: max_blend: 0.1973    aggregate:0.2430939226519337(0.26) 
+Epoch 9 - Save Best Score: 0.1432 Model
+========== fold: 0 training ==========
+Epoch 1 - avg_train_loss: 0.1353  avg_val_loss: 0.1191  time: 433s
+Epoch 1 - the pf1: 0.0044  the optimal pf1: 0.0375   thresh:0.0000 
+Epoch 1 - f1_score:0.0375   auc: 0.5752
+Epoch 1 - aggregate: mean_blend:0.0043   aggregate:0.03690280065897858(0.0) 
+Epoch 1 - aggregate: max_blend: 0.0054    aggregate:0.03690280065897858(0.0) 
+Epoch 1 - Save Best Score: 0.0044 Model
+Epoch 2 - avg_train_loss: 0.1269  avg_val_loss: 0.1125  time: 434s
+Epoch 2 - the pf1: 0.0072  the optimal pf1: 0.0375   thresh:0.0000 
+Epoch 2 - f1_score:0.0375   auc: 0.6836
+Epoch 2 - aggregate: mean_blend:0.0069   aggregate:0.03690280065897858(0.0) 
+Epoch 2 - aggregate: max_blend: 0.0090    aggregate:0.049999999999999996(0.02) 
+Epoch 2 - Save Best Score: 0.0072 Model
+Epoch 3 - avg_train_loss: 0.1273  avg_val_loss: 0.1073  time: 439s
+Epoch 3 - the pf1: 0.0245  the optimal pf1: 0.1082   thresh:0.0200 
+Epoch 3 - f1_score:0.1082   auc: 0.7081
+Epoch 3 - aggregate: mean_blend:0.0223   aggregate:0.13432835820895525(0.04) 
+Epoch 3 - aggregate: max_blend: 0.0387    aggregate:0.12727272727272726(0.02) 
+Epoch 3 - Save Best Score: 0.0245 Model
+Epoch 4 - avg_train_loss: 0.1143  avg_val_loss: 0.1013  time: 439s
+Epoch 4 - the pf1: 0.0196  the optimal pf1: 0.1289   thresh:0.0200 
+Epoch 4 - f1_score:0.1289   auc: 0.6882
+Epoch 4 - aggregate: mean_blend:0.0174   aggregate:0.12182741116751267(0.02) 
+Epoch 4 - aggregate: max_blend: 0.0261    aggregate:0.13370473537604458(0.02) 
+Epoch 5 - avg_train_loss: 0.1133  avg_val_loss: 0.1077  time: 432s
+Epoch 5 - the pf1: 0.0484  the optimal pf1: 0.1530   thresh:0.0200 
+Epoch 5 - f1_score:0.1530   auc: 0.7098
+Epoch 5 - aggregate: mean_blend:0.0441   aggregate:0.13526570048309178(0.02) 
+Epoch 5 - aggregate: max_blend: 0.0746    aggregate:0.17270194986072424(0.02) 
+Epoch 5 - Save Best Score: 0.0484 Model
+Epoch 6 - avg_train_loss: 0.1038  avg_val_loss: 0.1159  time: 435s
+Epoch 6 - the pf1: 0.0666  the optimal pf1: 0.1271   thresh:0.0200 
+Epoch 6 - f1_score:0.1271   auc: 0.7368
+Epoch 6 - aggregate: mean_blend:0.0638   aggregate:0.14(0.02) 
+Epoch 6 - aggregate: max_blend: 0.1115    aggregate:0.1461794019933555(0.02) 
+Epoch 6 - Save Best Score: 0.0666 Model
+Epoch 7 - avg_train_loss: 0.0912  avg_val_loss: 0.1231  time: 443s
+Epoch 7 - the pf1: 0.0902  the optimal pf1: 0.1483   thresh:0.0200 
+Epoch 7 - f1_score:0.1483   auc: 0.7156
+Epoch 7 - aggregate: mean_blend:0.0831   aggregate:0.183206106870229(0.04) 
+Epoch 7 - aggregate: max_blend: 0.1283    aggregate:0.17687074829931973(0.06) 
+Epoch 7 - Save Best Score: 0.0902 Model
+Epoch 8 - avg_train_loss: 0.0793  avg_val_loss: 0.1149  time: 443s
+Epoch 8 - the pf1: 0.0835  the optimal pf1: 0.1292   thresh:0.0400 
+Epoch 8 - f1_score:0.1292   auc: 0.7216
+Epoch 8 - aggregate: mean_blend:0.0786   aggregate:0.15827338129496404(0.04) 
+Epoch 8 - aggregate: max_blend: 0.1193    aggregate:0.15450643776824033(0.1) 
+========== fold: 0 training ==========
+Epoch 1 - avg_train_loss: 0.1216  avg_val_loss: 0.1081  time: 437s
+Epoch 1 - the pf1: 0.0146  the optimal pf1: 0.0804   thresh:0.0200 
+Epoch 1 - f1_score:0.0804   auc: 0.6412
+Epoch 1 - aggregate: mean_blend:0.0126   aggregate:0.08284023668639053(0.02) 
+Epoch 1 - aggregate: max_blend: 0.0224    aggregate:0.1003861003861004(0.02) 
+Epoch 1 - Save Best Score: 0.0146 Model
+========== fold: 0 training ==========
+Epoch 1 - avg_train_loss: 0.1336  avg_val_loss: 0.1235  time: 440s
+Epoch 1 - the pf1: 0.0043  the optimal pf1: 0.0375   thresh:0.0000 
+Epoch 1 - f1_score:0.0375   auc: 0.6298
+Epoch 1 - aggregate: mean_blend:0.0041   aggregate:0.03690280065897858(0.0) 
+Epoch 1 - aggregate: max_blend: 0.0054    aggregate:0.03690280065897858(0.0) 
+Epoch 1 - Save Best Score: 0.0043 Model
+Epoch 2 - avg_train_loss: 0.1324  avg_val_loss: 0.1140  time: 443s
+Epoch 2 - the pf1: 0.0078  the optimal pf1: 0.0636   thresh:0.0200 
+Epoch 2 - f1_score:0.0636   auc: 0.6644
+Epoch 2 - aggregate: mean_blend:0.0074   aggregate:0.049999999999999996(0.02) 
+Epoch 2 - aggregate: max_blend: 0.0099    aggregate:0.0916030534351145(0.02) 
+Epoch 2 - Save Best Score: 0.0078 Model
+Epoch 3 - avg_train_loss: 0.1208  avg_val_loss: 0.1058  time: 444s
+Epoch 3 - the pf1: 0.0389  the optimal pf1: 0.1552   thresh:0.0200 
+Epoch 3 - f1_score:0.1552   auc: 0.6960
+Epoch 3 - aggregate: mean_blend:0.0370   aggregate:0.17391304347826086(0.02) 
+Epoch 3 - aggregate: max_blend: 0.0665    aggregate:0.17081850533807832(0.02) 
+Epoch 3 - Save Best Score: 0.0389 Model
+Epoch 4 - avg_train_loss: 0.1101  avg_val_loss: 0.0975  time: 443s
+Epoch 4 - the pf1: 0.0299  the optimal pf1: 0.1433   thresh:0.0200 
+Epoch 4 - f1_score:0.1433   auc: 0.7147
+Epoch 4 - aggregate: mean_blend:0.0261   aggregate:0.13636363636363635(0.02) 
+Epoch 4 - aggregate: max_blend: 0.0395    aggregate:0.1411764705882353(0.02) 
+Epoch 5 - avg_train_loss: 0.1029  avg_val_loss: 0.1070  time: 437s
+Epoch 5 - the pf1: 0.0958  the optimal pf1: 0.1730   thresh:0.0200 
+Epoch 5 - f1_score:0.1730   auc: 0.7331
+Epoch 5 - aggregate: mean_blend:0.0882   aggregate:0.23076923076923075(0.02) 
+Epoch 5 - aggregate: max_blend: 0.1493    aggregate:0.21428571428571427(0.04) 
+Epoch 5 - Save Best Score: 0.0958 Model
+Epoch 6 - avg_train_loss: 0.0956  avg_val_loss: 0.1133  time: 439s
+Epoch 6 - the pf1: 0.1126  the optimal pf1: 0.1677   thresh:0.0200 
+Epoch 6 - f1_score:0.1677   auc: 0.7397
+Epoch 6 - aggregate: mean_blend:0.1111   aggregate:0.20454545454545459(0.04) 
+Epoch 6 - aggregate: max_blend: 0.1720    aggregate:0.2038834951456311(0.04) 
+Epoch 6 - Save Best Score: 0.1126 Model
+Epoch 7 - avg_train_loss: 0.0800  avg_val_loss: 0.1230  time: 443s
+Epoch 7 - the pf1: 0.1315  the optimal pf1: 0.1667   thresh:0.0600 
+Epoch 7 - f1_score:0.1667   auc: 0.7307
+Epoch 7 - aggregate: mean_blend:0.1263   aggregate:0.21989528795811517(0.22) 
+Epoch 7 - aggregate: max_blend: 0.1901    aggregate:0.22325581395348834(0.2) 
+Epoch 7 - Save Best Score: 0.1315 Model
+Epoch 8 - avg_train_loss: 0.0667  avg_val_loss: 0.1137  time: 443s
+Epoch 8 - the pf1: 0.1157  the optimal pf1: 0.1614   thresh:0.0400 
+Epoch 8 - f1_score:0.1614   auc: 0.7240
+Epoch 8 - aggregate: mean_blend:0.1087   aggregate:0.21495327102803738(0.06) 
+Epoch 8 - aggregate: max_blend: 0.1646    aggregate:0.21395348837209302(0.12) 
+Epoch 9 - avg_train_loss: 0.0580  avg_val_loss: 0.1339  time: 439s
+Epoch 9 - the pf1: 0.1317  the optimal pf1: 0.1562   thresh:0.0200 
+Epoch 9 - f1_score:0.1562   auc: 0.7261
+Epoch 9 - aggregate: mean_blend:0.1243   aggregate:0.20765027322404372(0.3) 
+Epoch 9 - aggregate: max_blend: 0.1903    aggregate:0.21590909090909094(0.9) 
+Epoch 9 - Save Best Score: 0.1317 Model

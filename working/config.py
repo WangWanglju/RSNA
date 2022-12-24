@@ -4,7 +4,7 @@ class CFG:
     Parameters used for training
     """
     #debug
-    debug = True
+    debug = False
     train = True
     num_workers = 4
 
@@ -16,30 +16,30 @@ class CFG:
 
     # Images
     # size = 256
-    size = 512
+    size = 1024
 
     # k-fold
-    n_fold = 3  # Stratified GKF
-    train_fold = [0,1]
+    n_fold = 4  # Stratified GKF
+    train_fold = [0,1,2,3]
 
     # Model
-    model = "efficientnet_b1"
-    exp = 'baseline'
+    model = "efficientnet_b2"
+    exp = 'baseline_1024'
     pretrained_weights = None
-    num_classes = 1
+    num_classes = 2
     n_channels = 3
 
     # Training    
     loss_config = {
         "name": "bce",  # dice, ce, bce
         "smoothing": 0.,  # 0.01
-        "activation": "sigmoid",  # "sigmoid", "softmax"
+        "activation": "softmax",  # "sigmoid", "softmax"
         "aux_loss_weight": 0,
     }
 
     data_config = {
-        "batch_size": 32,
-        "val_bs": 48,
+        "batch_size": 12,
+        "val_bs": 16,
     }
 
     optimizer_config = {

@@ -4,9 +4,9 @@ import timm
 import torch
 import torch.nn as nn
 from utils import load_model_weights
-
+ 
 def define_model(
-    name,
+    cfg,
     num_classes=1,
     num_classes_aux=0,
     n_channels=1,
@@ -29,8 +29,8 @@ def define_model(
         torch model -- Pretrained model.
     """
     # Load pretrained model
-    encoder = getattr(timm.models, name)(pretrained=pretrained)
-    encoder.name = name
+    encoder = getattr(timm.models, cfg.model)(pretrained=pretrained)
+    encoder.name = cfg.model
 
     # Tile Model
     model = ClsModel(
@@ -75,6 +75,14 @@ class ClsModel(nn.Module):
         self.num_classes_aux = num_classes_aux
         self.n_channels = n_channels
 
+        # self.pool = nn.AdaptiveAvgPool2d(1)
+        # self.features = nn.Sequential(
+        #     nn.Linear(self.nb_ft, 512),
+        #     nn.Dropout1d(p=0.3),
+        #     nn.ReLU(),
+        #     nn.BatchNorm1d(512),
+        #     )
+
         self.logits = nn.Linear(self.nb_ft, num_classes)
         if self.num_classes_aux:
             self.logits_aux = nn.Linear(self.nb_ft, num_classes_aux)
@@ -109,10 +117,11 @@ class ClsModel(nn.Module):
             torch tensor [batch_size x num_features]: Features.
         """
         fts = self.encoder.forward_features(x)
-
+        b, n, _, _ =fts.shape 
+        # fts = self.pool(fts).reshape(b,n)
         while len(fts.size()) > 2:
             fts = fts.mean(-1)
-
+        # fts = self.features(fts)
         return fts
 
     def get_logits(self, fts):
@@ -126,6 +135,7 @@ class ClsModel(nn.Module):
             torch tensor [batch_size x num_classes]: logits.
             torch tensor [batch_size x num_classes_aux]: logits aux.
         """
+        
         logits = self.logits(fts)
 
         if self.num_classes_aux:

@@ -1,239 +1,4 @@
 ========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-Epoch 1 - avg_train_loss: 0.4580  avg_val_loss: 0.5316  time: 8s
-Epoch 1 - 
-the Result: 0.0000
-Epoch 1 - Save Best Score: 0.0000 Model
-Epoch 2 - avg_train_loss: 0.2993  avg_val_loss: 0.3511  time: 5s
-Epoch 2 - 
-the Result: 0.0000
-Epoch 3 - avg_train_loss: 0.2278  avg_val_loss: 0.2905  time: 5s
-Epoch 3 - 
-the Result: 0.0000
-Epoch 4 - avg_train_loss: 0.2062  avg_val_loss: 0.2677  time: 5s
-Epoch 4 - 
-the Result: 0.0000
-========== fold: 1 training ==========
-Epoch 1 - avg_train_loss: 0.4757  avg_val_loss: 0.4681  time: 5s
-Epoch 1 - 
-the Result: 0.0000
-Epoch 1 - Save Best Score: 0.0000 Model
-Epoch 2 - avg_train_loss: 0.3135  avg_val_loss: 0.2942  time: 5s
-Epoch 2 - 
-the Result: 0.0000
-Epoch 3 - avg_train_loss: 0.2472  avg_val_loss: 0.2350  time: 5s
-Epoch 3 - 
-the Result: 0.0000
-Epoch 4 - avg_train_loss: 0.2262  avg_val_loss: 0.2308  time: 5s
-Epoch 4 - 
-the Result: 0.0000
-========== fold: 2 training ==========
-Epoch 1 - avg_train_loss: 0.5605  avg_val_loss: 0.5148  time: 5s
-Epoch 1 - 
-the Result: 0.0000
-Epoch 1 - Save Best Score: 0.0000 Model
-Epoch 2 - avg_train_loss: 0.3631  avg_val_loss: 0.3810  time: 5s
-Epoch 2 - 
-the Result: 0.0000
-Epoch 3 - avg_train_loss: 0.2725  avg_val_loss: 0.3237  time: 5s
-Epoch 3 - 
-the Result: 0.0000
-Epoch 4 - avg_train_loss: 0.2417  avg_val_loss: 0.3177  time: 5s
-Epoch 4 - 
-the Result: 0.0000
-========== fold: 3 training ==========
-Epoch 1 - avg_train_loss: 0.5417  avg_val_loss: 0.4401  time: 5s
-Epoch 1 - 
-the Result: 0.0000
-Epoch 1 - Save Best Score: 0.0000 Model
-Epoch 2 - avg_train_loss: 0.3609  avg_val_loss: 0.3062  time: 5s
-Epoch 2 - 
-the Result: 0.0000
-Epoch 3 - avg_train_loss: 0.2871  avg_val_loss: 0.2550  time: 5s
-Epoch 3 - 
-the Result: 0.0000
-Epoch 4 - avg_train_loss: 0.2626  avg_val_loss: 0.2425  time: 5s
-Epoch 4 - 
-the Result: 0.0000
-========== CV ==========
-========== fold: 0 training ==========
-Epoch 1 - avg_train_loss: 0.4580  avg_val_loss: 0.5316  time: 8s
-Epoch 1 - the Result: 0.0000
-Epoch 1 - Save Best Score: 0.0000 Model
-Epoch 2 - avg_train_loss: 0.2993  avg_val_loss: 0.3511  time: 5s
-Epoch 2 - the Result: 0.0000
-Epoch 3 - avg_train_loss: 0.2278  avg_val_loss: 0.2905  time: 5s
-Epoch 3 - the Result: 0.0000
-Epoch 4 - avg_train_loss: 0.2062  avg_val_loss: 0.2677  time: 5s
-Epoch 4 - the Result: 0.0000
-========== fold: 0 result ==========
-========== fold: 1 training ==========
-Epoch 1 - avg_train_loss: 0.4757  avg_val_loss: 0.4681  time: 5s
-Epoch 1 - the Result: 0.0000
-Epoch 1 - Save Best Score: 0.0000 Model
-Epoch 2 - avg_train_loss: 0.3135  avg_val_loss: 0.2942  time: 5s
-Epoch 2 - the Result: 0.0000
-Epoch 3 - avg_train_loss: 0.2472  avg_val_loss: 0.2350  time: 5s
-Epoch 3 - the Result: 0.0000
-Epoch 4 - avg_train_loss: 0.2262  avg_val_loss: 0.2308  time: 5s
-Epoch 4 - the Result: 0.0000
-========== fold: 1 result ==========
-========== CV ==========
-========== fold: 0 training ==========
-Epoch 1 - avg_train_loss: 0.2385  avg_val_loss: 0.1957  time: 456s
-Epoch 1 - the Result: 0.0000
-Epoch 1 - Save Best Score: 0.0000 Model
-Epoch 2 - avg_train_loss: 0.2487  avg_val_loss: 0.2286  time: 453s
-Epoch 2 - the Result: 0.0000
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-Epoch 1 - avg_train_loss: 0.8355  avg_val_loss: 0.9462  time: 11s
-Epoch 1 - the pf1: 0.0487   f1_score:0.0000   auc: 0.5682(thresh: [1.443152   0.4431519  0.39632496 0.39572364 0.3750587  0.3749518
- 0.3586982  0.35727954 0.21815544 0.21687788 0.21218906 0.21194257
- 0.15095039])
-Epoch 1 - Save Best Score: 0.0487 Model
-Epoch 2 - avg_train_loss: 0.8074  avg_val_loss: 1.1495  time: 8s
-Epoch 2 - the pf1: 0.0419   f1_score:0.0000   auc: 0.4862(thresh: [1.3457292  0.3457292  0.2263198  0.22381362 0.14566936 0.14353263
- 0.09835634 0.0977096  0.08217123 0.0818231  0.04809533])
-Epoch 2 - Save Best Score: 0.0419 Model
-Epoch 3 - avg_train_loss: 0.8573  avg_val_loss: 1.3720  time: 8s
-Epoch 3 - the pf1: 0.0354   f1_score:0.0000   auc: 0.4687(thresh: [1.2814832  0.2814832  0.13165429 0.13065323 0.12449164 0.12416001
- 0.08578877 0.08526345 0.04775831 0.0477284  0.04765442 0.0466385
- 0.01940891])
-Epoch 3 - Save Best Score: 0.0354 Model
-Epoch 4 - avg_train_loss: 0.6831  avg_val_loss: 1.4807  time: 8s
-Epoch 4 - the pf1: 0.0306   f1_score:0.0000   auc: 0.3641(thresh: [1.2699134  0.26991338 0.11003249 0.10948031 0.09477329 0.09448923
- 0.04822747 0.0481821  0.04713059 0.04616521 0.03916972 0.03902981
- 0.02517053])
-Epoch 4 - Save Best Score: 0.0306 Model
-========== fold: 0 result ==========
-========== fold: 1 training ==========
-Epoch 1 - avg_train_loss: 0.9617  avg_val_loss: 0.7268  time: 8s
-Epoch 1 - the pf1: 0.0287   f1_score:0.0000   auc: 0.4450(thresh: [1.4331212  0.43312123 0.42935634 0.2278464  0.22763899 0.19100082
- 0.19026363 0.13598742])
-Epoch 1 - Save Best Score: 0.0287 Model
-Epoch 2 - avg_train_loss: 0.9023  avg_val_loss: 0.7806  time: 8s
-Epoch 2 - the pf1: 0.0257   f1_score:0.0000   auc: 0.4179(thresh: [1.2947137  0.29471377 0.22003753 0.2184669  0.11297297 0.11273661
- 0.07900202 0.07875808 0.05469532])
-Epoch 2 - Save Best Score: 0.0257 Model
-Epoch 3 - avg_train_loss: 0.9130  avg_val_loss: 0.7946  time: 8s
-Epoch 3 - the pf1: 0.0335   f1_score:0.0000   auc: 0.4501(thresh: [1.2694092  0.26940915 0.08135983 0.08085962 0.049517   0.04810305
- 0.03198947])
-Epoch 4 - avg_train_loss: 0.9130  avg_val_loss: 0.8332  time: 8s
-Epoch 4 - the pf1: 0.0330   f1_score:0.0000   auc: 0.4569(thresh: [1.288665   0.28866512 0.2532256  0.07833515 0.07754301 0.03626392
- 0.03304084])
-========== fold: 1 result ==========
-========== CV ==========
-========== fold: 0 training ==========
-Epoch 1 - avg_train_loss: 0.8355  avg_val_loss: 0.9462  time: 11s
-Epoch 1 - the pf1: 0.0487   f1_score:0.0000   auc: 0.5682
-Epoch 1 - the optimal pf1: 0.1000   thresh:0.3500
-Epoch 1 - Save Best Score: 0.0487 Model
-Epoch 2 - avg_train_loss: 0.8074  avg_val_loss: 1.1495  time: 8s
-Epoch 2 - the pf1: 0.0419   f1_score:0.0000   auc: 0.4862
-Epoch 2 - the optimal pf1: 0.0690   thresh:0.2200
-Epoch 2 - Save Best Score: 0.0419 Model
-Epoch 3 - avg_train_loss: 0.8573  avg_val_loss: 1.3720  time: 8s
-Epoch 3 - the pf1: 0.0354   f1_score:0.0000   auc: 0.4687
-Epoch 3 - the optimal pf1: 0.0656   thresh:0.1200
-Epoch 3 - Save Best Score: 0.0354 Model
-Epoch 4 - avg_train_loss: 0.6831  avg_val_loss: 1.4807  time: 8s
-Epoch 4 - the pf1: 0.0306   f1_score:0.0000   auc: 0.3641
-Epoch 4 - the optimal pf1: 0.0556   thresh:0.0900
-Epoch 4 - Save Best Score: 0.0306 Model
-========== fold: 0 result ==========
-========== fold: 1 training ==========
-Epoch 1 - avg_train_loss: 0.9617  avg_val_loss: 0.7268  time: 8s
-Epoch 1 - the pf1: 0.0287   f1_score:0.0000   auc: 0.4450
-Epoch 1 - the optimal pf1: 0.3333   thresh:0.4200
-Epoch 1 - Save Best Score: 0.0287 Model
-Epoch 2 - avg_train_loss: 0.9023  avg_val_loss: 0.7806  time: 8s
-Epoch 2 - the pf1: 0.0257   f1_score:0.0000   auc: 0.4179
-Epoch 2 - the optimal pf1: 0.0571   thresh:0.2100
-Epoch 2 - Save Best Score: 0.0257 Model
-Epoch 3 - avg_train_loss: 0.9130  avg_val_loss: 0.7946  time: 8s
-Epoch 3 - the pf1: 0.0335   f1_score:0.0000   auc: 0.4501
-Epoch 3 - the optimal pf1: 0.5000   thresh:0.2500
-Epoch 4 - avg_train_loss: 0.9130  avg_val_loss: 0.8332  time: 8s
-Epoch 4 - the pf1: 0.0330   f1_score:0.0000   auc: 0.4569
-Epoch 4 - the optimal pf1: 0.4000   thresh:0.2300
-========== fold: 1 result ==========
-========== CV ==========
-========== fold: 0 training ==========
-Epoch 1 - avg_train_loss: 3.4509  avg_val_loss: 2.8831  time: 468s
-Epoch 1 - the pf1: 0.0026   f1_score:0.0000   auc: 0.6677
-Epoch 1 - the optimal pf1: 0.0375   thresh:0.0000
-Epoch 1 - Save Best Score: 0.0026 Model
-Epoch 2 - avg_train_loss: 3.2492  avg_val_loss: 2.7525  time: 467s
-Epoch 2 - the pf1: 0.0219   f1_score:0.0150   auc: 0.7215
-Epoch 2 - the optimal pf1: 0.0884   thresh:0.0100
-Epoch 3 - avg_train_loss: 2.3338  avg_val_loss: 3.0503  time: 466s
-Epoch 3 - the pf1: 0.0957   f1_score:0.0909   auc: 0.7143
-Epoch 3 - the optimal pf1: 0.1395   thresh:0.0100
-Epoch 4 - avg_train_loss: 1.0342  avg_val_loss: 3.4783  time: 466s
-Epoch 4 - the pf1: 0.0930   f1_score:0.0918   auc: 0.6927
-Epoch 4 - the optimal pf1: 0.1240   thresh:0.0100
-========== fold: 0 result ==========
-========== fold: 1 training ==========
-Epoch 1 - avg_train_loss: 3.4544  avg_val_loss: 3.2938  time: 464s
-Epoch 1 - the pf1: 0.0005   f1_score:0.0000   auc: 0.6772
-Epoch 1 - the optimal pf1: 0.0374   thresh:0.0000
-Epoch 1 - Save Best Score: 0.0005 Model
-Epoch 2 - avg_train_loss: 3.3615  avg_val_loss: 2.6973  time: 468s
-Epoch 2 - the pf1: 0.0058   f1_score:0.0000   auc: 0.7035
-Epoch 2 - the optimal pf1: 0.0836   thresh:0.0100
-Epoch 3 - avg_train_loss: 2.2427  avg_val_loss: 3.2292  time: 467s
-Epoch 3 - the pf1: 0.0847   f1_score:0.0767   auc: 0.6703
-Epoch 3 - the optimal pf1: 0.1364   thresh:0.0200
-Epoch 4 - avg_train_loss: 0.8652  avg_val_loss: 3.8083  time: 467s
-Epoch 4 - the pf1: 0.0979   f1_score:0.0946   auc: 0.6501
-Epoch 4 - the optimal pf1: 0.1224   thresh:0.0500
-========== fold: 1 result ==========
-========== CV ==========
-========== fold: 0 training ==========
-========== fold: 0 training ==========
-Epoch 1 - avg_train_loss: 0.1761  avg_val_loss: 0.1096  time: 417s
-Epoch 1 - the pf1: 0.0122   f1_score:0.0000   auc: 0.6243
-Epoch 1 - the optimal pf1: 0.0559   thresh:0.0100
-Epoch 1 - Save Best Score: 0.0122 Model
-Epoch 2 - avg_train_loss: 0.1413  avg_val_loss: 0.1151  time: 419s
-Epoch 2 - the pf1: 0.0065   f1_score:0.0000   auc: 0.6925
-Epoch 2 - the optimal pf1: 0.0712   thresh:0.0100
-Epoch 3 - avg_train_loss: 0.1276  avg_val_loss: 0.1196  time: 416s
-Epoch 3 - the pf1: 0.0316   f1_score:0.0369   auc: 0.7321
-Epoch 3 - the optimal pf1: 0.1489   thresh:0.0100
-Epoch 3 - Save Best Score: 0.0316 Model
-Epoch 4 - avg_train_loss: 0.1227  avg_val_loss: 0.1262  time: 404s
-Epoch 4 - the pf1: 0.0522   f1_score:0.0509   auc: 0.7276
-Epoch 4 - the optimal pf1: 0.0886   thresh:0.0100
-Epoch 4 - Save Best Score: 0.0522 Model
-========== fold: 0 training ==========
 Epoch 1 - avg_train_loss: 0.1562  avg_val_loss: 0.1176  time: 422s
 Epoch 1 - the pf1: 0.0086   f1_score:0.0000   auc: 0.6655
 Epoch 1 - the optimal pf1: 0.0716   thresh:0.0100
@@ -564,3 +329,138 @@ Epoch 2 - f1_score:0.0000   auc: 0.4219
 Epoch 2 - Save Best Score: 0.0181 Model
 ========== fold: 1 result ==========
 ========== CV ==========
+========== fold: 0 training ==========
+Epoch 1 - avg_train_loss: 1.3375  avg_val_loss: 1.2863  time: 409s
+Epoch 1 - the pf1: 0.0455  aggregate: mean_blend:0.0447   max_blend: 0.0492
+Epoch 1 - f1_score:0.0000   auc: 0.6428  
+                      the optimal pf1: 0.0913   thresh:0.1200
+Epoch 1 - Save Best Score: 0.0455 Model
+Epoch 2 - avg_train_loss: 1.4773  avg_val_loss: 1.6140  time: 409s
+Epoch 2 - the pf1: 0.0447  aggregate: mean_blend:0.0436   max_blend: 0.0516
+Epoch 2 - f1_score:0.0000   auc: 0.6892  
+                      the optimal pf1: 0.1041   thresh:0.0600
+Epoch 3 - avg_train_loss: 1.4783  avg_val_loss: 1.4726  time: 406s
+Epoch 3 - the pf1: 0.0492  aggregate: mean_blend:0.0486   max_blend: 0.0608
+Epoch 3 - f1_score:0.0047   auc: 0.6978  
+                      the optimal pf1: 0.1512   thresh:0.0800
+Epoch 3 - Save Best Score: 0.0492 Model
+Epoch 4 - avg_train_loss: 1.3905  avg_val_loss: 1.7083  time: 403s
+Epoch 4 - the pf1: 0.0712  aggregate: mean_blend:0.0697   max_blend: 0.0925
+Epoch 4 - f1_score:0.0452   auc: 0.7287  
+                      the optimal pf1: 0.1389   thresh:0.0600
+Epoch 4 - Save Best Score: 0.0712 Model
+Epoch 5 - avg_train_loss: 1.2803  avg_val_loss: 1.7831  time: 406s
+Epoch 5 - the pf1: 0.0677  aggregate: mean_blend:0.0687   max_blend: 0.0944
+Epoch 5 - f1_score:0.0486   auc: 0.7109  
+                      the optimal pf1: 0.1444   thresh:0.1000
+Epoch 6 - avg_train_loss: 1.1514  avg_val_loss: 1.6801  time: 410s
+Epoch 6 - the pf1: 0.0769  aggregate: mean_blend:0.0737   max_blend: 0.0987
+Epoch 6 - f1_score:0.0705   auc: 0.7090  
+                      the optimal pf1: 0.1219   thresh:0.0600
+Epoch 6 - Save Best Score: 0.0769 Model
+Epoch 7 - avg_train_loss: 1.0059  avg_val_loss: 1.7947  time: 414s
+Epoch 7 - the pf1: 0.0895  aggregate: mean_blend:0.0870   max_blend: 0.1217
+Epoch 7 - f1_score:0.0798   auc: 0.7326  
+                      the optimal pf1: 0.1289   thresh:0.1400
+Epoch 7 - Save Best Score: 0.0895 Model
+Epoch 8 - avg_train_loss: 0.9472  avg_val_loss: 1.6366  time: 404s
+Epoch 8 - the pf1: 0.1034  aggregate: mean_blend:0.1028   max_blend: 0.1263
+Epoch 8 - f1_score:0.1349   auc: 0.7235  
+                      the optimal pf1: 0.1406   thresh:0.1400
+Epoch 8 - Save Best Score: 0.1034 Model
+Epoch 9 - avg_train_loss: 0.7462  avg_val_loss: 1.6753  time: 408s
+Epoch 9 - the pf1: 0.0927  aggregate: mean_blend:0.0911   max_blend: 0.1169
+Epoch 9 - f1_score:0.0889   auc: 0.7147  
+                      the optimal pf1: 0.1345   thresh:0.1000
+Epoch 10 - avg_train_loss: 0.7649  avg_val_loss: 1.8158  time: 413s
+Epoch 10 - the pf1: 0.0947  aggregate: mean_blend:0.0931   max_blend: 0.1240
+Epoch 10 - f1_score:0.1000   auc: 0.7116  
+                      the optimal pf1: 0.1355   thresh:0.1600
+========== fold: 0 result ==========
+========== fold: 1 training ==========
+Epoch 1 - avg_train_loss: 1.4717  avg_val_loss: 1.2833  time: 408s
+Epoch 1 - the pf1: 0.0445  aggregate: mean_blend:0.0431   max_blend: 0.0465
+Epoch 1 - f1_score:0.0000   auc: 0.6532  
+                      the optimal pf1: 0.1383   thresh:0.1200
+Epoch 1 - Save Best Score: 0.0445 Model
+Epoch 2 - avg_train_loss: 1.3685  avg_val_loss: 1.0560  time: 410s
+Epoch 2 - the pf1: 0.0539  aggregate: mean_blend:0.0519   max_blend: 0.0540
+Epoch 2 - f1_score:0.0000   auc: 0.6767  
+                      the optimal pf1: 0.1582   thresh:0.2400
+Epoch 2 - Save Best Score: 0.0539 Model
+Epoch 3 - avg_train_loss: 1.5211  avg_val_loss: 1.6113  time: 415s
+Epoch 3 - the pf1: 0.1202  aggregate: mean_blend:0.1197   max_blend: 0.1416
+Epoch 3 - f1_score:0.1532   auc: 0.7064  
+                      the optimal pf1: 0.1684   thresh:0.0400
+Epoch 3 - Save Best Score: 0.1202 Model
+Epoch 4 - avg_train_loss: 1.3960  avg_val_loss: 1.1068  time: 411s
+Epoch 4 - the pf1: 0.0923  aggregate: mean_blend:0.0907   max_blend: 0.0983
+Epoch 4 - f1_score:0.1276   auc: 0.7400  
+                      the optimal pf1: 0.1791   thresh:0.2200
+Epoch 5 - avg_train_loss: 1.2368  avg_val_loss: 1.3595  time: 414s
+Epoch 5 - the pf1: 0.1003  aggregate: mean_blend:0.0986   max_blend: 0.1134
+Epoch 5 - f1_score:0.1141   auc: 0.7160  
+                      the optimal pf1: 0.1782   thresh:0.2000
+Epoch 6 - avg_train_loss: 1.1184  avg_val_loss: 0.9415  time: 415s
+Epoch 6 - the pf1: 0.0959  aggregate: mean_blend:0.0917   max_blend: 0.0890
+Epoch 6 - f1_score:0.1710   auc: 0.7256  
+                      the optimal pf1: 0.1799   thresh:0.7200
+Epoch 7 - avg_train_loss: 1.0050  avg_val_loss: 1.4904  time: 414s
+Epoch 7 - the pf1: 0.1346  aggregate: mean_blend:0.1303   max_blend: 0.1388
+Epoch 7 - f1_score:0.1721   auc: 0.7055  
+                      the optimal pf1: 0.1888   thresh:0.2400
+Epoch 7 - Save Best Score: 0.1346 Model
+Epoch 8 - avg_train_loss: 0.9838  avg_val_loss: 1.6470  time: 417s
+Epoch 8 - the pf1: 0.1468  aggregate: mean_blend:0.1397   max_blend: 0.1578
+Epoch 8 - f1_score:0.1770   auc: 0.7101  
+                      the optimal pf1: 0.1990   thresh:0.1800
+Epoch 8 - Save Best Score: 0.1468 Model
+Epoch 9 - avg_train_loss: 0.8109  avg_val_loss: 1.5498  time: 408s
+Epoch 9 - the pf1: 0.1286  aggregate: mean_blend:0.1238   max_blend: 0.1325
+Epoch 9 - f1_score:0.1595   auc: 0.7052  
+                      the optimal pf1: 0.1742   thresh:0.2200
+Epoch 10 - avg_train_loss: 0.7632  avg_val_loss: 1.6183  time: 414s
+Epoch 10 - the pf1: 0.1323  aggregate: mean_blend:0.1278   max_blend: 0.1394
+Epoch 10 - f1_score:0.1605   auc: 0.7068  
+                      the optimal pf1: 0.1659   thresh:0.1800
+========== fold: 1 result ==========
+========== CV ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+Epoch 1 - avg_train_loss: 0.1443  avg_val_loss: 0.1405  time: 393s
+Epoch 1 - the pf1: 0.0095  aggregate: mean_blend:0.0096   max_blend: 0.0148
+Epoch 1 - f1_score:0.0000   auc: 0.6847  
+                      the optimal pf1: 0.0756   thresh:0.0200
+Epoch 1 - Save Best Score: 0.0095 Model
+Epoch 2 - avg_train_loss: 0.1346  avg_val_loss: 0.1540  time: 389s
+Epoch 2 - the pf1: 0.0043  aggregate: mean_blend:0.0041   max_blend: 0.0057
+Epoch 2 - f1_score:0.0000   auc: 0.6989  
+                      the optimal pf1: 0.0458   thresh:0.0000
+Epoch 3 - avg_train_loss: 0.1284  avg_val_loss: 0.1607  time: 392s
+Epoch 3 - the pf1: 0.0069  aggregate: mean_blend:0.0069   max_blend: 0.0127
+Epoch 3 - f1_score:0.0000   auc: 0.7465  
+                      the optimal pf1: 0.0458   thresh:0.0000
+Epoch 4 - avg_train_loss: 0.1129  avg_val_loss: 0.1452  time: 393s
+Epoch 4 - the pf1: 0.0374  aggregate: mean_blend:0.0384   max_blend: 0.0761
+Epoch 4 - f1_score:0.0320   auc: 0.7197  
+                      the optimal pf1: 0.1071   thresh:0.0200
+Epoch 4 - Save Best Score: 0.0374 Model
+Epoch 5 - avg_train_loss: 0.0986  avg_val_loss: 0.1523  time: 392s
+Epoch 5 - the pf1: 0.0520  aggregate: mean_blend:0.0524   max_blend: 0.1006
+Epoch 5 - f1_score:0.0439   auc: 0.6782  
+                      the optimal pf1: 0.0942   thresh:0.0200
+Epoch 5 - Save Best Score: 0.0520 Model
+Epoch 6 - avg_train_loss: 0.0903  avg_val_loss: 0.1543  time: 393s
+Epoch 6 - the pf1: 0.0618  aggregate: mean_blend:0.0627   max_blend: 0.1029
+Epoch 6 - f1_score:0.0615   auc: 0.6928  
+                      the optimal pf1: 0.0972   thresh:0.0200
+Epoch 6 - Save Best Score: 0.0618 Model
+Epoch 7 - avg_train_loss: 0.0804  avg_val_loss: 0.1644  time: 392s
+Epoch 7 - the pf1: 0.0576  aggregate: mean_blend:0.0592   max_blend: 0.1025
+Epoch 7 - f1_score:0.0560   auc: 0.6891  
+                      the optimal pf1: 0.0889   thresh:0.0200
+Epoch 8 - avg_train_loss: 0.0703  avg_val_loss: 0.1589  time: 393s
+Epoch 8 - the pf1: 0.0693  aggregate: mean_blend:0.0726   max_blend: 0.1119
+Epoch 8 - f1_score:0.0626   auc: 0.6902  
+                      the optimal pf1: 0.1114   thresh:0.0200
+Epoch 8 - Save Best Score: 0.0693 Model

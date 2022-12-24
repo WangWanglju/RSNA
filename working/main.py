@@ -29,11 +29,11 @@ from torch.utils.data import DataLoader
 
 from transformers import get_linear_schedule_with_warmup, get_cosine_schedule_with_warmup
 
-from dataset import TrainDataset, get_train_transfos, get_valid_transfos
+from dataset import TrainDataset, get_train_transfos, get_valid_transfos, ImbalancedDatasetSampler
 from config import CFG
 from model import define_model
 from utils import *
-
+from losses import *
 
 
 def predict(model, dataset, loss_config, batch_size=64, device="cuda"):
@@ -136,11 +136,16 @@ def valid_fn(valid_loader, model, criterion, device):
         batch_size = labels.size(0)
         with torch.no_grad():
             y_preds, _ = model(inputs)
+            
             loss = criterion(y_preds, labels)
         if CFG.gradient_accumulation_steps > 1:
             loss = loss / CFG.gradient_accumulation_steps
         losses.update(loss.item(), batch_size)
-        preds.append(torch.sigmoid(y_preds).squeeze().to('cpu').numpy())
+        if 'bce' in CFG.loss_config['name']:
+            # print(torch.sigmoid(y_preds).squeeze().to('cpu').numpy())
+            preds.append(torch.sigmoid(y_preds).reshape(-1).to('cpu').numpy())
+        else:
+            preds.append(torch.softmax(y_preds, dim=-1)[:,1].to('cpu').numpy())
         end = time.time()
         if step % CFG.print_freq == 0 or step == (len(valid_loader)-1):
             print('EVAL: [{0}/{1}] '
@@ -181,29 +186,40 @@ def train_loop(folds, fold):
     train_folds = folds[folds['fold'] != fold].reset_index(drop=True)
     valid_folds = folds[folds['fold'] == fold].reset_index(drop=True)
     valid_labels = valid_folds['cancer'].values
-    
-    train_dataset = TrainDataset(CFG, train_folds, get_train_transfos())
-    valid_dataset = TrainDataset(CFG, valid_folds, get_valid_transfos())
+
+    print('before upsample', train_folds.groupby(['cancer']).size())
+    pos = train_folds[train_folds.cancer == 1]
+    upsample_pos = pd.concat([pos for _ in range(2)])
+    train_folds = pd.concat([train_folds, upsample_pos])
+    print('after upsample', train_folds.groupby(['cancer']).size())
+
+    train_dataset = TrainDataset(CFG, train_folds, get_train_transfos(), mode='train')
+    valid_dataset = TrainDataset(CFG, valid_folds, get_valid_transfos(), mode = 'val')
 
     train_loader = DataLoader(train_dataset,
                               batch_size=CFG.data_config['batch_size'],
                               shuffle=True,
-                              num_workers=CFG.num_workers, pin_memory=True, drop_last=True)
+                            #   sampler=ImbalancedDatasetSampler(train_dataset, weights=train_dataset.weights, neg_weights=1., pos_weights=1.),
+                              num_workers=CFG.num_workers, 
+                              pin_memory=True, 
+                              drop_last=True)
     valid_loader = DataLoader(valid_dataset,
                               batch_size=CFG.data_config['val_bs'],
                               shuffle=False,
-                              num_workers=CFG.num_workers, pin_memory=True, drop_last=False)
+                              num_workers=CFG.num_workers, 
+                              pin_memory=True, 
+                              drop_last=False)
 
     # ====================================================
     # model & optimizer
     # ====================================================
-    model = define_model(name = CFG.model,
-                         num_classes=1,
+    model = define_model(cfg = CFG,
+                         num_classes=1 if 'bce' in CFG.loss_config['name'] else 2,
                          num_classes_aux=0,
                          n_channels=3,
                          pretrained_weights="",
                          pretrained=True)
-
+    # print(model)
     model.to(device)
 
     if CFG.llrd:
@@ -223,8 +239,16 @@ def train_loop(folds, fold):
     # loop
     # ====================================================
     # criterion = nn.CrossEntropyLoss(weight=torch.tensor([20.]).to(device)) # RMSELoss(reduction="mean")
-    criterion = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([20.]).to(device))
-    # criterion = nn.BCEWithLogitsLoss()
+    # criterion = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([20.]).to(device))
+    if CFG.loss_config['name'] == 'bce':
+        criterion = nn.BCEWithLogitsLoss()
+    elif CFG.loss_config['name'] == 'ce':
+        criterion = nn.CrossEntropyLoss()
+    elif CFG.loss_config['name'] == 'bcefl':
+        criterion = BCEFocalLoss()
+    elif CFG.loss_config['name'] == 'bceasl':
+        criterion = AsymmetricLossOptimized()
+    
     
     best_score = -np.inf
 
@@ -250,7 +274,9 @@ def train_loop(folds, fold):
         optimal_pf1_score, thresh = optimal_f1(valid_labels, predictions)
         mean_score = pfbeta_np(agg_valid_folds.label.values, agg_valid_folds.mean_cancer.values)
         max_score = pfbeta_np(agg_valid_folds.label.values, agg_valid_folds.max_cancer.values)
-        pred = (predictions > 0.5).astype(np.int)
+        aggregate_mean_optimal_pf1_score, mean_thresh = optimal_f1(agg_valid_folds.label.values, agg_valid_folds.mean_cancer.values)
+        aggregate_max_optimal_pf1_score, max_thresh = optimal_f1(agg_valid_folds.label.values, agg_valid_folds.max_cancer.values)
+        pred = (predictions > thresh).astype(np.int)
         f1_scores = f1_score(valid_labels, pred)
         fpr, tpr, thresholds = roc_curve(valid_labels, predictions)
         pred_auc = auc(fpr, tpr)
@@ -258,9 +284,10 @@ def train_loop(folds, fold):
         elapsed = time.time() - start_time
 
         LOGGER.info(f'Epoch {epoch+1} - avg_train_loss: {avg_loss:.4f}  avg_val_loss: {avg_val_loss:.4f}  time: {elapsed:.0f}s')
-        LOGGER.info(f'Epoch {epoch+1} - the pf1: {score:.4f}  aggregate: mean_blend:{mean_score:.4f}   max_blend: {max_score:.4f}')
-        LOGGER.info(f'Epoch {epoch+1} - f1_score:{f1_scores:.4f}   auc: {pred_auc:.4f}  \n  \
-                    the optimal pf1: {optimal_pf1_score:.4f}   thresh:{thresh:.4f}')
+        LOGGER.info(f'Epoch {epoch+1} - the pf1: {score:.4f}  the optimal pf1: {optimal_pf1_score:.4f}   thresh:{thresh:.4f} ')
+        LOGGER.info(f'Epoch {epoch+1} - f1_score:{f1_scores:.4f}   auc: {pred_auc:.4f}')
+        LOGGER.info(f'Epoch {epoch+1} - aggregate: mean_blend:{mean_score:.4f}   aggregate:{aggregate_mean_optimal_pf1_score}({mean_thresh}) ')
+        LOGGER.info(f'Epoch {epoch+1} - aggregate: max_blend: {max_score:.4f}    aggregate:{aggregate_max_optimal_pf1_score}({max_thresh}) ')
         if CFG.wandb:
             wandb.log({f"[fold{fold}] epoch": epoch+1, 
                        f"[fold{fold}] avg_train_loss": avg_loss, 
@@ -304,6 +331,8 @@ if __name__ == '__main__':
 
     LOGGER = get_logger(filename=os.path.join(exp_dir,'train'))
     seed_everything(42)
+
+
     # ====================================================
     # CV split
     # ====================================================
@@ -312,9 +341,10 @@ if __name__ == '__main__':
         train.loc[val_index, 'fold'] = int(n)
     train['fold'] = train['fold'].astype(int)
     print(train.groupby(['fold', 'cancer']).size())
+
     
     if CFG.debug:
-        train = train.sort_values('patient_id')[:1000]
+        train = train.sort_values('patient_id')[:2000]
         CFG.epochs = 2
 
         
@@ -322,7 +352,8 @@ if __name__ == '__main__':
     
     def get_result(label, pred):
         pf = pfbeta_np(label, pred, beta=1)
-        print(pf)
+        optimal_pf1_score, thresh = optimal_f1(label, pred)
+        return pf, optimal_pf1_score, thresh
     
     if CFG.train:
         oof_df = pd.DataFrame()
@@ -333,16 +364,18 @@ if __name__ == '__main__':
                 oof_df = pd.concat([oof_df, _oof_df])
                 agg_df = pd.concat([agg_df, agg_oof_df])
                 LOGGER.info(f"========== fold: {fold} result ==========")
-                get_result(_oof_df.cancer, _oof_df.pred_cancer)
+                LOGGER.info(get_result(_oof_df.cancer, _oof_df.pred_cancer))
         oof_df = oof_df.reset_index(drop=True)
+        agg_df = agg_df.reset_index(drop=True)
         LOGGER.info(f"========== CV ==========")
         print('no aggregate')
-        get_result(oof_df.cancer, oof_df.pred_cancer)
+        LOGGER.info(get_result(oof_df.cancer, oof_df.pred_cancer))
         #aggregate
-        print('aggregate by mean max')
-        get_result(agg_df.label, agg_df.mean_cancer)
-        get_result(agg_df.label, agg_df.max_cancer)
+        print('aggregate by mean(max)    binary    thresh')
+        LOGGER.info(get_result(agg_df.label, agg_df.mean_cancer))
+        LOGGER.info(get_result(agg_df.label, agg_df.max_cancer))
         oof_df.to_pickle(exp_dir+'/oof_df.pkl')
+        agg_df.to_pickle(exp_dir+'/agg_df.pkl')
         
     if CFG.wandb and not CFG.debug:
         wandb.finish()

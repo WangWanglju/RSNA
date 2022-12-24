@@ -1,0 +1,43 @@
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+========== fold: 0 training ==========
+Epoch 1 - avg_train_loss: 2.0579  avg_val_loss: 3.6283  time: 458s
+Epoch 1 - the pf1: 0.0488  aggregate: mean_blend:0.0477   max_blend: 0.0475
+Epoch 1 - f1_score:0.0681   auc: 0.7208
+Epoch 1 - the optimal pf1: 0.1275   thresh:0.8600
+Epoch 1 - Save Best Score: 0.0488 Model
+Epoch 2 - avg_train_loss: 1.2283  avg_val_loss: 1.6316  time: 459s
+Epoch 2 - the pf1: 0.0489  aggregate: mean_blend:0.0482   max_blend: 0.0498
+Epoch 2 - f1_score:0.0854   auc: 0.6805
+Epoch 2 - the optimal pf1: 0.1070   thresh:0.8000
+Epoch 2 - Save Best Score: 0.0489 Model
+Epoch 3 - avg_train_loss: 0.7773  avg_val_loss: 1.7945  time: 436s
+Epoch 3 - the pf1: 0.0601  aggregate: mean_blend:0.0587   max_blend: 0.0604
+Epoch 3 - f1_score:0.1250   auc: 0.7119
+Epoch 3 - the optimal pf1: 0.1526   thresh:0.6800
+Epoch 3 - Save Best Score: 0.0601 Model
+Epoch 4 - avg_train_loss: 0.6287  avg_val_loss: 2.6228  time: 447s
+Epoch 4 - the pf1: 0.0594  aggregate: mean_blend:0.0578   max_blend: 0.0592
+Epoch 4 - f1_score:0.1003   auc: 0.6958
+Epoch 4 - the optimal pf1: 0.1041   thresh:0.6800
+Epoch 5 - avg_train_loss: 0.5013  avg_val_loss: 1.9626  time: 449s
+Epoch 5 - the pf1: 0.0585  aggregate: mean_blend:0.0576   max_blend: 0.0630
+Epoch 5 - f1_score:0.0983   auc: 0.6771
+Epoch 5 - the optimal pf1: 0.1145   thresh:0.7200
